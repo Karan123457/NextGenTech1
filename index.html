@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polytechnic Portal – India | Cutoffs • Top Colleges • Fees • Placements • How to Reach • Counselling • Notices</title>
+  <meta name="description" content="A clean single‑file website for diploma/ polytechnic students: browse colleges, check cutoffs, fees, placements, how to reach, counselling tips, admission steps, and notices."/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- Simple SVG icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 10L12 4l8 6v9a1 1 0 0 1-1 1h-5v-5H10v5H5a1 1 0 0 1-1-1v-9z" stroke="white" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h1>Polytechnic Portal</h1>
+        <span class="badge" title="Built with HTML, CSS & JS">No-Framework</span>
+      </div>
+      <nav class="navlinks">
+        <a href="#colleges" class="active">Colleges</a>
+        <a href="#compare">Compare</a>
+        <a href="#guides">Guides</a>
+        <a href="#notices">Notices</a>
+      </nav>
+      <div class="cta">
+        <button id="darkToggle" class="btn btn-ghost" title="Toggle Dark/Light">🌓</button>
+        <a href="#guides" class="btn btn-primary">Admission Help</a>
+        <a href="#guides" class="btn btn-primary">Login / Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h2>Find your best <span class="pill">Diploma / Polytechnic</span> college in India</h2>
+          <p>Filter by fees, placements, cutoffs, and more. Get directions, counselling checklists, and live notices — all in one simple page.</p>
+          <div class="searchbar">
+            <input id="q" class="input" placeholder="Search by college, city or state… (e.g., Delhi, CSE)" />
+            <select id="sort" class="select" title="Sort">
+              <option value="rank">Top by Placement</option>
+              <option value="feesAsc">Fees: Low → High</option>
+              <option value="feesDesc">Fees: High → Low</option>
+              <option value="cutoff">Cutoff (CSE): Toughest</option>
+              <option value="name">Name A → Z</option>
+            </select>
+            <button id="reset" class="btn btn-ghost">Reset</button>
+          </div>
+
+          <div class="filters">
+            <div class="f">
+              <label for="type">Type</label>
+              <select id="type" class="select">
+                <option value="">Any</option>
+                <option>Government</option>
+                <option>Private</option>
+              </select>
+            </div>
+            <div class="f">
+              <label for="state">State</label>
+              <select id="state" class="select"><option value="">All</option></select>
+            </div>
+            <div class="f">
+              <label for="course">Course</label>
+              <select id="course" class="select"><option value="">Any</option></select>
+            </div>
+            <div class="f">
+              <label>Max Fees / year (₹) <span id="feesLabel" class="pill">—</span></label>
+              <input id="feesMax" type="range" class="range" min="0" max="150000" step="5000" value="150000" />
+            </div>
+            <div class="f">
+              <label>Min Placement % <span id="placeLabel" class="pill">—</span></label>
+              <input id="placeMin" type="range" class="range" min="0" max="100" step="5" value="0" />
+            </div>
+            <div class="f">
+              <label>&nbsp;</label>
+              <button id="topToggle" class="btn btn-ghost" title="Show only top colleges (≥ 70% placement)">Top Colleges Only</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="min-height:160px">
+            <h3>Quick Tips</h3>
+            <ul style="margin:6px 0 0 18px;color:#cbd5e1">
+              <li>Use <b>Compare</b> to see Fees, Placements & Cutoffs side‑by‑side.</li>
+              <li>Click <b>Details</b> to view <i>How to reach</i> (metro/rail/airport) and maps.</li>
+              <li>In <b>Guides</b>, read step‑by‑step <i>counselling & admission</i>.</li>
+              <li>Update <b>Notices</b> right from the site — stored in your browser.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLEGES -->
+    <section id="colleges">
+      <div class="section-title">
+        <h4>Colleges</h4>
+        <span id="count" class="pill">0 results</span>
+      </div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <!-- COMPARE sticky bar -->
+    <div id="compareBar" class="compare" aria-live="polite">
+      <strong>Compare:</strong>
+      <div class="list" id="compareList"></div>
+      <button id="openCompare" class="btn btn-primary">Open Compare</button>
+      <button id="clearCompare" class="btn btn-ghost">Clear</button>
+    </div>
+
+    <!-- GUIDES -->
+    <section id="guides">
+      <div class="section-title"><h4>Guides: Counselling & Admission</h4></div>
+      <details>
+        <summary>🔎 Counselling Process (General)</summary>
+        <ol style="margin:8px 0 0 18px;color:#cbd5e1">
+          <li>Register on your state/board portal; verify mobile & email.</li>
+          <li>Upload documents (10th/12th or ITI marks, domicile, category, photo, signature).</li>
+          <li>Pay counselling fee; keep receipt.</li>
+          <li>Fill choices: order by <i>course first</i>, then <i>college</i>.</li>
+          <li>Lock choices before deadline; download the final list.</li>
+          <li>Seat allotment: check round‑wise result & cutoff.</li>
+          <li>Freeze/Float/Slide based on satisfaction.</li>
+          <li>Report to institute with originals + fees (see checklist below).</li>
+        </ol>
+      </details>
+      <details>
+        <summary>🧭 Admission Steps (Institute Reporting)</summary>
+        <ul style="margin:8px 0 0 18px;color:#cbd5e1">
+          <li>Carry originals + 3‑5 sets of self‑attested xerox.</li>
+          <li>Pay admission fee via DD/UPI/online as instructed.</li>
+          <li>Medical fitness & character certificates (as required).</li>
+          <li>Hostel form (optional) + local guardian details.</li>
+          <li>Collect fee receipt, provisional admission letter, and timetable.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>📄 Documents Checklist</summary>
+        <ul style="margin:8px 0 0 18px;color:#cbd5e1">
+          <li>10th mark sheet & certificate; 12th/ITI (if applicable)</li>
+          <li>Domicile/caste/EWS/certificate (if claimed)</li>
+          <li>Transfer/Migration Certificate</li>
+          <li>Photo, signature, ID proof (Aadhaar)</li>
+          <li>Recent passport photos (8–10)</li>
+        </ul>
+      </details>
+      <details>
+        <summary>💡 Choosing Government vs Private</summary>
+        <p style="color:#cbd5e1;margin:8px 0 0">Government colleges: lower fees, strong peer group; Private: better infra & sometimes training. Prioritise <b>course quality</b>, industry tie‑ups, and placements over brand alone.</p>
+      </details>
+      <details>
+        <summary>❓ FAQ</summary>
+        <p style="color:#cbd5e1;margin:8px 0 0">This site is a starter template. Replace sample data with real state‑wise colleges and cutoffs. Everything runs offline in your browser.</p>
+      </details>
+    </section>
+
+    <!-- NOTICES -->
+    <section id="notices">
+      <div class="section-title">
+        <h4>Notice Board</h4>
+        <button id="seedNotices" class="btn btn-ghost">Load Sample Notices</button>
+      </div>
+      <form id="noticeForm" class="notice-form">
+        <input required class="input" name="title" placeholder="Notice title (e.g., Counselling Round‑1 starts)" />
+        <input class="input" name="link" placeholder="Link (optional)" />
+        <input required class="input" type="date" name="date" />
+        <button class="btn btn-primary" type="submit">Add Notice</button>
+      </form>
+      <div id="noticeList" class="notices"></div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Polytechnic Portal. Created By NextGenTech.
+    </footer>
+  </main>
+
+  <!-- DETAILS MODAL -->
+  <dialog id="detailsModal" aria-label="College details">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="mTitle" style="margin:0">College</h3>
+        <button class="close" onclick="closeModal()">✖</button>
+      </div>
+      <div id="mBody" class="two-col" style="margin-top:10px"></div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;padding:12px 0 4px">
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- COMPARE MODAL -->
+  <dialog id="compareModal" aria-label="Compare colleges">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 style="margin:0">Compare Colleges</h3>
+        <button class="close" onclick="document.getElementById('compareModal').close()">✖</button>
+      </div>
+      <div id="compareBody" style="margin-top:10px;overflow:auto"></div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;padding:12px 0 4px">
+        <button class="btn btn-ghost" onclick="document.getElementById('compareModal').close()">Close</button>
+      </div>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
